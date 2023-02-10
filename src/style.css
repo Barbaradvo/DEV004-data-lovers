@@ -17,6 +17,7 @@
 
 .table {
     visibility: visible;
+    justify-content: center;
 }
 
 table {
