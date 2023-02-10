@@ -150,7 +150,7 @@ function loadTable(pokemonDB) {
         <td class = num >  ${pokemonDB[i].num} </td>             
         <td> ${pokename} </td> 
         <td>
-          <div class="${pokemonDB[i].type[0]}Text">${pokemonDB[i].type[0]}</div><br class="${pokemonDB[i].type[0]}Text"><br class="${pokemonDB[i].type[0]}Text">
+          <div class="${pokemonDB[i].type[0]}Text">${pokemonDB[i].type[0]}</div><br class="${pokemonDB[i].type[1]}Text"><br class="${pokemonDB[i].type[1]}Text">
           <div class="${pokemonDB[i].type[1]}Text">${pokemonDB[i].type[1]}</div>
         </td> 
         <td> 
