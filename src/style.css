@@ -523,28 +523,23 @@ h2 {
     height: auto;
 }
 
-#nationaldex {
-    padding-top: 5%;
-    height: 60px;
-    
-    
-}
-
-#kantodex {
-    padding-left: 3%;
-  
-}
-
-#johto {
-
-    padding-top: 2%;
-
-}
-
-
-
 .botonsdex{
     filter: drop-shadow(5px 5px 5px #646464);
+    justify-content: center;
+}
+
+#nationaldex {
+    height: 60px;
+}
+
+#kantodex {   
+    padding-left: 4%;
+    margin-right:-47px;
+  }
+
+#johto {    
+    padding-left: 4%;
+    margin-right:-34px;
 }
 
 .undefinedText{
