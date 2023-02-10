@@ -10,9 +10,6 @@
     font-family: 'Lato', sans-serif;   
     font-size: 15px;
     text-align: center;
-
-
-
 }
 
 .table {
@@ -40,10 +37,6 @@ table {
 .num {
     color: rgb(138, 138, 138);
     font-family: 'Lato', sans-serif;
-}
-
-tr {
-    height: 50px
 }
 
 td {

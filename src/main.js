@@ -150,16 +150,17 @@ function loadTable(pokemonDB) {
         <td class = num >  ${pokemonDB[i].num} </td>             
         <td> ${pokename} </td> 
         <td>
-          <div class="${pokemonDB[i].type[0]}Text">${pokemonDB[i].type[0]}</div><br class="${pokemonDB[i].type[0]}Text"><br class="${pokemonDB[i].type[0]}Text">
+          <div class="${pokemonDB[i].type[0]}Text">${pokemonDB[i].type[0]}</div>
           <div class="${pokemonDB[i].type[1]}Text">${pokemonDB[i].type[1]}</div>
         </td> 
-        <td> 
-          <div class="${pokemonDB[i].weaknesses[0]}Text">${pokemonDB[i].weaknesses[0]}</div><br class="${pokemonDB[i].weaknesses[0]}Text"><br class="${pokemonDB[i].weaknesses[0]}Text">
-          <div class="${pokemonDB[i].weaknesses[1]}Text">${pokemonDB[i].weaknesses[1]}</div><br class="${pokemonDB[i].weaknesses[1]}Text"><br class="${pokemonDB[i].weaknesses[1]}Text">
-          <div class="${pokemonDB[i].weaknesses[2]}Text">${pokemonDB[i].weaknesses[2]}</div><br class="${pokemonDB[i].weaknesses[2]}Text"><br class="${pokemonDB[i].weaknesses[2]}Text">
-          <div class="${pokemonDB[i].weaknesses[3]}Text">${pokemonDB[i].weaknesses[3]}</div><br class="${pokemonDB[i].weaknesses[3]}Text"><br class="${pokemonDB[i].weaknesses[3]}Text">
-          <div class="${pokemonDB[i].weaknesses[4]}Text">${pokemonDB[i].weaknesses[4]}</div><br class="${pokemonDB[i].weaknesses[4]}Text"><br class="${pokemonDB[i].weaknesses[4]}Text">
-          <div class="${pokemonDB[i].weaknesses[5]}Text">${pokemonDB[i].weaknesses[5]}</div>
+        <td div class= acho style = "weight:400px" > 
+        <div class = "size" style="height:200px" >
+          <div class="${pokemonDB[i].weaknesses[0]}Text">${pokemonDB[i].weaknesses[0]} </div><br>
+          <div class="${pokemonDB[i].weaknesses[1]}Text">${pokemonDB[i].weaknesses[1]} </div><br>
+          <div class="${pokemonDB[i].weaknesses[2]}Text">${pokemonDB[i].weaknesses[2]}</div><br>
+          <div class="${pokemonDB[i].weaknesses[3]}Text">${pokemonDB[i].weaknesses[3]} </div><br>
+          <div  class="${pokemonDB[i].weaknesses[4]}Text">${pokemonDB[i].weaknesses[4]} </div><br>
+          <div  class="${pokemonDB[i].weaknesses[5]}Text">${pokemonDB[i].weaknesses[5]} </div>
         </td> 
         <td>
           <div class="${pokemonDB[i].resistant[0]}Text">${pokemonDB[i].resistant[0]}</div><br class="${pokemonDB[i].resistant[0]}Text"><br class="${pokemonDB[i].resistant[0]}Text">
