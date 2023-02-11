@@ -10,6 +10,9 @@
     font-family: 'Lato', sans-serif;   
     font-size: 15px;
     text-align: center;
+
+
+
 }
 
 .table {
@@ -39,6 +42,10 @@ table {
     font-family: 'Lato', sans-serif;
 }
 
+tr {
+    height: 50px
+}
+
 td {
     padding-left: 7.5px;
     padding-right: 7.5px;
@@ -47,6 +54,14 @@ td {
     width: 0%;
 }
 
+td:first-child {
+    padding-left: 0;
+    background-color: rgba(231, 231, 231, 0.147);
+}
+
+td:last-child {
+    padding-right: 0;
+}
 
 .table {
     visibility: collapse;
