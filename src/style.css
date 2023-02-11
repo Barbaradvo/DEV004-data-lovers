@@ -54,14 +54,6 @@ td {
     width: 0%;
 }
 
-td:first-child {
-    padding-left: 0;
-    background-color: rgba(231, 231, 231, 0.147);
-}
-
-td:last-child {
-    padding-right: 0;
-}
 
 .table {
     visibility: collapse;
