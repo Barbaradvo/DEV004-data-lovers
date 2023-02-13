@@ -15,12 +15,23 @@
 
 }
 
+.table-types {
+    text-transform: uppercase;
+    color: whitesmoke;
+    font-family: 'Lato', sans-serif;    
+    Justify-Content: Space-Around;
+}
+
 .table {
+    font-family: 'Lato', sans-serif;
+    Font-Weight: 600;
     visibility: visible;
     justify-content: center;
 }
 
 table {
+    font-family: 'Lato', sans-serif;
+    Font-Weight: 600;
     margin: 0 auto;
     background-color: rgba(255, 255, 255, 0.215);
 }
@@ -384,8 +395,8 @@ h2 {
     text-transform: capitalize;
     font-size: 50px ;
     color: whitesmoke;
-   font-family: 'Lato', sans-serif;    
-   Justify-Content: Space-Around;
+    font-family: 'Lato', sans-serif;    
+    Justify-Content: Space-Around;
     Margin: 20px 0 40px 0;
 }
 

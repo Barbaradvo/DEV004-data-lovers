@@ -4,6 +4,7 @@
 const dataFunctions = {
 
   sortData(data , sortType, sortOrder) {
+    
     if (sortType === "name") {
       if (sortOrder === false) {
         data.sort((a, b) => {
@@ -15,7 +16,9 @@ const dataFunctions = {
           if (a.name > b.name) return -1;
         })
       }          
-    } else { 
+    }
+
+    if (sortType === "num") { 
       if (sortOrder === false) {
         data.sort((a, b) => {
           if (a.num < b.num) return -1;
@@ -27,7 +30,9 @@ const dataFunctions = {
         })
       }       
     }
+
     return data
+    
   },
 
   // funcionalidad de filtrado por tipo para los botones
