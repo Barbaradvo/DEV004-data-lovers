@@ -29,7 +29,7 @@ Un trabajo de Alexandra F. Vega y Barbara de Villa.
 
 ### Definición del producto
 
-Una web para visualizar datos y facilitar el uso de la aplicacion de Pokemon Go
+Una web para visualizar datos y facilitar el uso de la aplicacion de Pokemon Go.
 
 ### Historias de usuario
 
@@ -45,6 +45,8 @@ Una web para visualizar datos y facilitar el uso de la aplicacion de Pokemon Go
 #### Prototipo de alta fidelidad
 
 ![Prototipo de alta 1](/src/img/prototipodealta1.jpg)
+![Prototipo de alta 2](/src/img/MacBook%20Air%20-%202.png)
+![Prototipo de alta 3](/src/img/MacBook%20Air%20-%203.png)
 
 #### Testeos de usabilidad
 
@@ -93,4 +95,6 @@ No encontramos grandes problemas durante los testeos, pero gracias al feedback d
 * [Saltar un loop](https://www.w3schools.com/js/js_break.asp)
 * [Busqueda](https://www.w3schools.com/jsref/jsref_includes_array.asp)
 * [Filtrado](https://www.youtube.com/watch?v=O3Ht2uejzfM)
+*[Tarjetas](https://www.youtube.com/watch?v=rfsv0i4qXFs)
+*[Diseño](https://www.youtube.com/watch?v=bF5UBkonkIs )
 
