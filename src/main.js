@@ -16,7 +16,7 @@ console.log(pokemonDB)
 window.onload = () => {
   loadTable(pokemonDB);
   LoadCards(pokemonDB);
-}   
+}
 
 //funcionalidad para mostrar vista detallada
 const pokedex = document.getElementById("pokedex");
@@ -47,7 +47,7 @@ let sortOrder = false
 document.getElementById("headerName").addEventListener("click", sortName)
 
 function sortName() {
-  dataFunctions.sortData(pokemonDB, "name", sortOrder)   
+  dataFunctions.sortData(pokemonDB, "name", sortOrder)
   sortOrder = !sortOrder
   console.log(sortOrder)
   loadTable(pokemonDB)
@@ -57,7 +57,7 @@ function sortName() {
 document.getElementById("headerNumber").addEventListener("click", sortNumber)
 
 function sortNumber() {
-  dataFunctions.sortData(pokemonDB, "num", sortOrder)   
+  dataFunctions.sortData(pokemonDB, "num", sortOrder)
   sortOrder = !sortOrder
   console.log(sortOrder)
   loadTable(pokemonDB)
@@ -71,7 +71,7 @@ function determinePokevolution(i) {
   if (nextEvolution === true) {
     pokevolution = pokemonDB[i].evolution['next-evolution'][0]['candy-cost']
   } else {
-    pokevolution ='N/A'
+    pokevolution = 'N/A'
 
   }
 }
@@ -81,7 +81,7 @@ function determinePokevolution(i) {
 function LoadCards(pokemonDB) {
   const pokedexFull = document.getElementById("pokedex");
   let pokedexDataHTML = ''
-  for (let i = 0; i < pokemonDB.length; i++) {  
+  for (let i = 0; i < pokemonDB.length; i++) {
     pokedexDataHTML += `
     <li class = "${pokemonDB[i].type[0]}" id= poketype>
       <img class = "card-image" src ="${pokemonDB[i].img}"/>
@@ -94,7 +94,7 @@ function LoadCards(pokemonDB) {
     </li>
     `;
   }
-  
+
   pokedexFull.innerHTML = pokedexDataHTML
 
 }
@@ -103,27 +103,27 @@ function LoadCards(pokemonDB) {
 function loadTable(pokemonDB) {
   const htmlTablefull = document.getElementById("htmlTable")
   let datatoHTML = ""
-  for ( let i=0 ; i<pokemonDB.length ; i++) {
+  for (let i = 0; i < pokemonDB.length; i++) {
     //determina la columna de nombres
     const pokename = pokemonDB[i].name.charAt(0).toUpperCase() + pokemonDB[i].name.slice(1)
 
     //determina la columna de caramelos
-    if ( typeof pokemonDB[i].evolution['next-evolution'] === 'object') {
+    if (typeof pokemonDB[i].evolution['next-evolution'] === 'object') {
       nextEvolution = true
     } else {
       nextEvolution = false
     }
     determinePokevolution(i)
-    
+
     //determina la busqueda incluyendo evoluciones
     let nextEvolutionFilter = null
     let prevEvolutionFilter = null
     let nextNextEvolutionFilter = null
     let prevPrevEvolutionFilter = null
 
-    if ( typeof pokemonDB[i].evolution['next-evolution'] === 'object') {
+    if (typeof pokemonDB[i].evolution['next-evolution'] === 'object') {
       nextEvolutionFilter = pokemonDB[i].evolution['next-evolution'][0].name.includes(searchInput)
-      if ( typeof pokemonDB[i].evolution['next-evolution'][0]['next-evolution'] === 'object') {
+      if (typeof pokemonDB[i].evolution['next-evolution'][0]['next-evolution'] === 'object') {
         nextNextEvolutionFilter = pokemonDB[i].evolution['next-evolution'][0]['next-evolution'][0].name.includes(searchInput)
       } else {
         nextNextEvolutionFilter = null
@@ -131,9 +131,9 @@ function loadTable(pokemonDB) {
     } else {
       nextEvolutionFilter = null
     }
-    if ( typeof pokemonDB[i].evolution['prev-evolution'] === 'object') {
+    if (typeof pokemonDB[i].evolution['prev-evolution'] === 'object') {
       prevEvolutionFilter = pokemonDB[i].evolution['prev-evolution'][0].name.includes(searchInput)
-      if ( typeof pokemonDB[i].evolution['prev-evolution'][0]['prev-evolution'] === 'object') {
+      if (typeof pokemonDB[i].evolution['prev-evolution'][0]['prev-evolution'] === 'object') {
         prevPrevEvolutionFilter = pokemonDB[i].evolution['prev-evolution'][0]['prev-evolution'][0].name.includes(searchInput)
       } else {
         prevPrevEvolutionFilter = null
@@ -143,41 +143,43 @@ function loadTable(pokemonDB) {
     }
 
     //generacion de la tabla
-    if (pokemonDB[i].name.includes(searchInput)||pokemonDB[i].num.includes(searchInput)||nextEvolutionFilter||nextNextEvolutionFilter||prevEvolutionFilter||prevPrevEvolutionFilter) {
-      datatoHTML +=
-      `<tr>
-        <td> <img class="prod_img" src="${pokemonDB[i].img}"></img> </td>
-        <td class = num >  ${pokemonDB[i].num} </td>             
-        <td> ${pokename} </td>        
-        <td class="table-types">
-          <div class="${pokemonDB[i].type[0]}Text">${pokemonDB[i].type[0]}</div><br class="${pokemonDB[i].type[1]}Text"><br class="${pokemonDB[i].type[1]}Text">
-          <div class="${pokemonDB[i].type[1]}Text">${pokemonDB[i].type[1]}</div>
-        </td> 
-        <td class="table-types"> 
-          <div class="${pokemonDB[i].weaknesses[0]}Text">${pokemonDB[i].weaknesses[0]}</div><br class="${pokemonDB[i].weaknesses[1]}Text"><br class="${pokemonDB[i].weaknesses[1]}Text">
-          <div class="${pokemonDB[i].weaknesses[1]}Text">${pokemonDB[i].weaknesses[1]}</div><br class="${pokemonDB[i].weaknesses[2]}Text"><br class="${pokemonDB[i].weaknesses[2]}Text">
-          <div class="${pokemonDB[i].weaknesses[2]}Text">${pokemonDB[i].weaknesses[2]}</div><br class="${pokemonDB[i].weaknesses[3]}Text"><br class="${pokemonDB[i].weaknesses[3]}Text">
-          <div class="${pokemonDB[i].weaknesses[3]}Text">${pokemonDB[i].weaknesses[3]}</div><br class="${pokemonDB[i].weaknesses[4]}Text"><br class="${pokemonDB[i].weaknesses[4]}Text">
-          <div class="${pokemonDB[i].weaknesses[4]}Text">${pokemonDB[i].weaknesses[4]}</div><br class="${pokemonDB[i].weaknesses[5]}Text"><br class="${pokemonDB[i].weaknesses[5]}Text">
-          <div class="${pokemonDB[i].weaknesses[5]}Text">${pokemonDB[i].weaknesses[5]}</div>
-        </td> 
-        <td class="table-types">
-          <div class="${pokemonDB[i].resistant[0]}Text">${pokemonDB[i].resistant[0]}</div><br class="${pokemonDB[i].resistant[1]}Text"><br class="${pokemonDB[i].resistant[1]}Text">
-          <div class="${pokemonDB[i].resistant[1]}Text">${pokemonDB[i].resistant[1]}</div><br class="${pokemonDB[i].resistant[2]}Text"><br class="${pokemonDB[i].resistant[2]}Text">
-          <div class="${pokemonDB[i].resistant[2]}Text">${pokemonDB[i].resistant[2]}</div><br class="${pokemonDB[i].resistant[3]}Text"><br class="${pokemonDB[i].resistant[3]}Text">
-          <div class="${pokemonDB[i].resistant[3]}Text">${pokemonDB[i].resistant[3]}</div><br class="${pokemonDB[i].resistant[4]}Text"><br class="${pokemonDB[i].resistant[4]}Text">
-          <div class="${pokemonDB[i].resistant[4]}Text">${pokemonDB[i].resistant[4]}</div><br class="${pokemonDB[i].resistant[5]}Text"><br class="${pokemonDB[i].resistant[5]}Text">
-          <div class="${pokemonDB[i].resistant[5]}Text">${pokemonDB[i].resistant[5]}</div>
-        </td>
-        <td> ${pokemonDB[i].egg}</td> 
-        <td> ${pokevolution}</td>
-      </tr>` 
-
-    } else {continue}
+    if (pokemonDB[i].name.includes(searchInput) || pokemonDB[i].num.includes(searchInput) || nextEvolutionFilter || nextNextEvolutionFilter || prevEvolutionFilter || prevPrevEvolutionFilter) {
+      datatoHTML += `
+        <tr>
+          <td> <img class="prod_img" src="${pokemonDB[i].img}"></img> </td>
+          <td class = num >  ${pokemonDB[i].num} </td>             
+          <td> ${pokename} </td>        
+          <td class="table-types">
+            <div class="${pokemonDB[i].type[0]}Text">${pokemonDB[i].type[0]}</div><br class="${pokemonDB[i].type[1]}Text"><br class="${pokemonDB[i].type[1]}Text">
+            <div class="${pokemonDB[i].type[1]}Text">${pokemonDB[i].type[1]}</div>
+          </td> 
+          <td class="table-types"> 
+            <div class="${pokemonDB[i].weaknesses[0]}Text">${pokemonDB[i].weaknesses[0]}</div><br class="${pokemonDB[i].weaknesses[1]}Text"><br class="${pokemonDB[i].weaknesses[1]}Text">
+            <div class="${pokemonDB[i].weaknesses[1]}Text">${pokemonDB[i].weaknesses[1]}</div><br class="${pokemonDB[i].weaknesses[2]}Text"><br class="${pokemonDB[i].weaknesses[2]}Text">
+            <div class="${pokemonDB[i].weaknesses[2]}Text">${pokemonDB[i].weaknesses[2]}</div><br class="${pokemonDB[i].weaknesses[3]}Text"><br class="${pokemonDB[i].weaknesses[3]}Text">
+            <div class="${pokemonDB[i].weaknesses[3]}Text">${pokemonDB[i].weaknesses[3]}</div><br class="${pokemonDB[i].weaknesses[4]}Text"><br class="${pokemonDB[i].weaknesses[4]}Text">
+            <div class="${pokemonDB[i].weaknesses[4]}Text">${pokemonDB[i].weaknesses[4]}</div><br class="${pokemonDB[i].weaknesses[5]}Text"><br class="${pokemonDB[i].weaknesses[5]}Text">
+            <div class="${pokemonDB[i].weaknesses[5]}Text">${pokemonDB[i].weaknesses[5]}</div>
+          </td> 
+          <td class="table-types">
+            <div class="${pokemonDB[i].resistant[0]}Text">${pokemonDB[i].resistant[0]}</div><br class="${pokemonDB[i].resistant[1]}Text"><br class="${pokemonDB[i].resistant[1]}Text">
+            <div class="${pokemonDB[i].resistant[1]}Text">${pokemonDB[i].resistant[1]}</div><br class="${pokemonDB[i].resistant[2]}Text"><br class="${pokemonDB[i].resistant[2]}Text">
+            <div class="${pokemonDB[i].resistant[2]}Text">${pokemonDB[i].resistant[2]}</div><br class="${pokemonDB[i].resistant[3]}Text"><br class="${pokemonDB[i].resistant[3]}Text">
+            <div class="${pokemonDB[i].resistant[3]}Text">${pokemonDB[i].resistant[3]}</div><br class="${pokemonDB[i].resistant[4]}Text"><br class="${pokemonDB[i].resistant[4]}Text">
+            <div class="${pokemonDB[i].resistant[4]}Text">${pokemonDB[i].resistant[4]}</div><br class="${pokemonDB[i].resistant[5]}Text"><br class="${pokemonDB[i].resistant[5]}Text">
+            <div class="${pokemonDB[i].resistant[5]}Text">${pokemonDB[i].resistant[5]}</div>
+          </td>
+          <td> ${pokemonDB[i].egg}</td> 
+          <td> ${pokevolution}</td>
+        </tr>
+      `
+    } else {
+      continue
+    }
   }
 
   htmlTablefull.innerHTML = datatoHTML
-
+  
 }
 
 //funcion de filtrado por tipo
@@ -208,110 +210,110 @@ function resetFilters() {
 }
 
 function grassFilter() {
-  pokemonDB = dataFunctions.filterData(pokemonDB,"grass")
+  pokemonDB = dataFunctions.filterData(pokemonDB, "grass")
   loadTable(pokemonDB)
   LoadCards(pokemonDB)
 }
 
 function fireFilter() {
-  pokemonDB = dataFunctions.filterData(pokemonDB,"fire")
+  pokemonDB = dataFunctions.filterData(pokemonDB, "fire")
   loadTable(pokemonDB)
   LoadCards(pokemonDB)
 }
 
 function waterFilter() {
-  pokemonDB = dataFunctions. filterData(pokemonDB,"water")
+  pokemonDB = dataFunctions.filterData(pokemonDB, "water")
   loadTable(pokemonDB)
   LoadCards(pokemonDB)
 }
 
 function bugFilter() {
-  pokemonDB = dataFunctions.filterData(pokemonDB,"bug")
+  pokemonDB = dataFunctions.filterData(pokemonDB, "bug")
   loadTable(pokemonDB)
   LoadCards(pokemonDB)
 }
 
 function normalFilter() {
-  pokemonDB = dataFunctions.filterData(pokemonDB,"normal")
+  pokemonDB = dataFunctions.filterData(pokemonDB, "normal")
   loadTable(pokemonDB)
   LoadCards(pokemonDB)
 }
 
 function flyingFilter() {
-  pokemonDB = dataFunctions.filterData(pokemonDB,"flying")
+  pokemonDB = dataFunctions.filterData(pokemonDB, "flying")
   loadTable(pokemonDB)
   LoadCards(pokemonDB)
 }
 
 function poisonFilter() {
-  pokemonDB = dataFunctions.filterData(pokemonDB,"poison")
+  pokemonDB = dataFunctions.filterData(pokemonDB, "poison")
   loadTable(pokemonDB)
   LoadCards(pokemonDB)
 }
 
 function electricFilter() {
-  pokemonDB = dataFunctions.filterData(pokemonDB,"electric")
+  pokemonDB = dataFunctions.filterData(pokemonDB, "electric")
   loadTable(pokemonDB)
   LoadCards(pokemonDB)
 }
 
 function groundFilter() {
-  pokemonDB = dataFunctions.filterData(pokemonDB,"ground")
+  pokemonDB = dataFunctions.filterData(pokemonDB, "ground")
   loadTable(pokemonDB)
   LoadCards(pokemonDB)
-  
+
 }
 
 function fightFilter() {
-  pokemonDB = dataFunctions.filterData(pokemonDB,"fighting")
+  pokemonDB = dataFunctions.filterData(pokemonDB, "fighting")
   loadTable(pokemonDB)
   LoadCards(pokemonDB)
 }
 
 function psychicFilter() {
-  pokemonDB = dataFunctions.filterData(pokemonDB,"psychic")
+  pokemonDB = dataFunctions.filterData(pokemonDB, "psychic")
   loadTable(pokemonDB)
   LoadCards(pokemonDB)
 }
 
 function rockFilter() {
-  pokemonDB = dataFunctions.filterData(pokemonDB,"rock")
+  pokemonDB = dataFunctions.filterData(pokemonDB, "rock")
   loadTable(pokemonDB)
   LoadCards(pokemonDB)
 }
 
 function ghostFilter() {
-  pokemonDB = dataFunctions.filterData(pokemonDB,"ghost")
+  pokemonDB = dataFunctions.filterData(pokemonDB, "ghost")
   loadTable(pokemonDB)
   LoadCards(pokemonDB)
 }
 
 function iceFilter() {
-  pokemonDB = dataFunctions.filterData(pokemonDB,"ice")
+  pokemonDB = dataFunctions.filterData(pokemonDB, "ice")
   loadTable(pokemonDB)
   LoadCards(pokemonDB)
 }
 
 function dragonFilter() {
-  pokemonDB = dataFunctions.filterData(pokemonDB,"dragon")
+  pokemonDB = dataFunctions.filterData(pokemonDB, "dragon")
   loadTable(pokemonDB)
   LoadCards(pokemonDB)
 }
 
 function darkFilter() {
-  pokemonDB = dataFunctions.filterData(pokemonDB,"dark")
+  pokemonDB = dataFunctions.filterData(pokemonDB, "dark")
   loadTable(pokemonDB)
   LoadCards(pokemonDB)
 }
 
 function steelFilter() {
-  pokemonDB = dataFunctions.filterData(pokemonDB,"steel")
+  pokemonDB = dataFunctions.filterData(pokemonDB, "steel")
   loadTable(pokemonDB)
   LoadCards(pokemonDB)
 }
 
 function fairyFilter() {
-  pokemonDB = dataFunctions.filterData(pokemonDB,"fairy")
+  pokemonDB = dataFunctions.filterData(pokemonDB, "fairy")
   loadTable(pokemonDB)
   LoadCards(pokemonDB)
 }
@@ -322,7 +324,7 @@ function fairyFilter() {
 
 
 
-document.getElementById("kantodex").addEventListener("click", function() {
+document.getElementById("kantodex").addEventListener("click", function () {
   pokemonDB = data.pokemon.filter(pokemon => pokemon.num <= 251)
   pokemonDB = pokemonDB.filter(pokemon => pokemon.num <= 151);
   loadTable(pokemonDB)
@@ -331,14 +333,14 @@ document.getElementById("kantodex").addEventListener("click", function() {
 });
 
 
-document.getElementById("nationaldex").addEventListener("click", function() {
+document.getElementById("nationaldex").addEventListener("click", function () {
   pokemonDB = data.pokemon.filter(pokemon => pokemon.num <= 251);
   loadTable(pokemonDB)
   LoadCards(pokemonDB)
   // Render the reseted database
-}); 
+});
 
-document.getElementById("johto").addEventListener("click", function() {
+document.getElementById("johto").addEventListener("click", function () {
   pokemonDB = data.pokemon.filter(pokemon => pokemon.num <= 251)
   pokemonDB = pokemonDB.filter(pokemon => pokemon.num > 151);
   loadTable(pokemonDB)
